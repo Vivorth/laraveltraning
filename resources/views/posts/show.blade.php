@@ -7,4 +7,11 @@
     {{$post->body}} {{--body is the name of the field--}}
 </div>
 <small>Witten on {{$post->created_at}}</small>
+<a href="{{$post->id}}/edit">Edit</a>
+
+{!!Form::open(['route'=> ['posts.destroy', $post->id], 'method' => 'POST'])!!}
+    {{Form::hidden('_method','DELETE')}}
+    {{Form::submit('Delete')}}
+{!!Form::close()!!}
+
 @endsection

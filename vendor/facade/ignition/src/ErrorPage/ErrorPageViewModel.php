@@ -9,7 +9,7 @@ use Facade\Ignition\Ignition;
 use Facade\Ignition\IgnitionConfig;
 use Facade\Ignition\Solutions\SolutionTransformer;
 use Illuminate\Contracts\Support\Arrayable;
-use Laravel\Telescope\Http\Controllers\HomeController;
+use Laravel\Telescope\Http\Controllers\DashboardController;
 use Laravel\Telescope\IncomingExceptionEntry;
 use Laravel\Telescope\Telescope;
 use Throwable;
@@ -93,7 +93,7 @@ class ErrorPageViewModel implements Arrayable
 
             $telescopeEntryId = (string) $telescopeEntry->uuid;
 
-            return url(action([HomeController::class, 'index'])."/exceptions/{$telescopeEntryId}");
+            return url(action([DashboardController::class, 'index'])."/exceptions/{$telescopeEntryId}");
         } catch (Exception $exception) {
             return null;
         }
